@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
         zoomImage = document.getElementById('zoomimage'),
         scopeTarget = document.getElementById('scopetarget');
     let scopeImageHeight = zoomImage.clientHeight;
+
 // マウスカーソルが乗ったとき
     scopeTarget.addEventListener('mouseover', e => {
         loope.style.display = 'block';
@@ -15,6 +16,8 @@ window.addEventListener('load', () => {
         zoomImage.style.marginLeft = (-2 * nowX) + 'px';
         zoomImage.style.marginTop = (-2 * nowY) + 'px';
     });
+
+// 要素上でマウスカーソルが動いたとき
     scopeTarget.addEventListener('mousemove', e => {
         const offset = scopeTarget.getBoundingClientRect();
 // eとoffsetとscroll関連
@@ -28,5 +31,12 @@ window.addEventListener('load', () => {
         // ??? <- (ルーペ内の)画像の高さ(auto) - ルーペの高さ(400px)
         zoomImage.style.marginLeft = mLeft + 'px';
         zoomImage.style.marginTop = mTop + 'px';
+    });
+
+// マウスカーソルが要素から外れたとき
+    scopeTarget.addEventListener('mouseout', () => {
+        loope.removeAttribute('style');
+        zoomImage.setAttribute('src', '');
+        zoomImage.setAttribute('alt', '');
     });
 });
