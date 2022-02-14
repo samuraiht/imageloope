@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#imageframe {
+    position: relative;
+    width: 400px;
+}
+
+#scopetarget {
+    width: 400px;
+}
+
+#loope {
+    display: none;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 10px);
+}
+
+#zoomimage {
+    width: 800px;
+}
